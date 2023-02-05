@@ -1,7 +1,9 @@
 import requests
 from datetime import datetime
 from tkinter import *
-api_key = #Enter Your API Key Generated 
+
+api_key = "XXXXXXXX" # Enter Your API Key here
+
 def do():
     location=E1.get()
     complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+api_key
@@ -26,12 +28,11 @@ def do():
 
     print("="*60)
 
-
     # making a list so that i can print the info to a txt 
     txtlist = [temp_city,weather_desc,hmdt,wind_spd,date_time]
     #using open() buit-in function to write to a text file
-    with open("textfile.txt" , mode= 'w' ,encoding= 'utf-8') as f :     
-                                     #encoding = utf-8 for linux and cp1252 for win
+    with open("textfile.txt" , mode= 'w' ,encoding= 'utf-8') as f:
+        # encoding = utf-8 for linux and cp1252 for win
         f.write("------------------------------------------------------------- \n ")   
         f.write("Weather Stats for - {}  || {}".format(location.upper(), date_time))
         f.write("\n ------------------------------------------------------------- \n")
@@ -56,5 +57,3 @@ B = Button(top, text ="Get Weather",command=do)
 B.place(x=120,y=200)
 
 top.mainloop()
-
-
